@@ -1,0 +1,67 @@
+{% load static %}
+
+<div class="navbar bg-gray-100 sticky top-0 z-50">
+    <div class="navbar-start">
+        <div class="dropdown">
+            <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+                </svg>
+            </div>
+            <ul tabindex="0" class="menu menu-sm dropdown-content bg-gray-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg">
+                <li><a href="{% url 'home:homepage' %}">Accueil</a></li>
+                <li>
+                    <a>Nos services</a>
+                    <ul class="p-2">
+                        <li><a class="text-black" href="{% url 'institute:japanese' %}">Cours de japonais</a></li>
+                        <li><a href="{% url "institute:chinese" %}">Cours de chinois</a></li>
+                        <li><a href="{% url "institute:korean" %}">Cours de coréen</a></li>
+                        <li><a href="{% url "institute:workshops"%}" >Ateliers</a></li>
+                        <li><a href="{% url "institute:other" %}">Autres</a></li>
+                    </ul>
+                </li>
+                <li><a href="{% url "contact:contact-form" %}">Contact</a></li>
+                <li><a href="{% url "home:about" %}">À propos</a></li>
+            </ul>
+        </div>
+        <a class="btn btn-ghost text-xl" href="{% url 'home:homepage' %}">
+            <img src="{% static 'img/logo_horizontal.png' %}" alt="Institut Torii Logo" class="h-14 w-auto">
+        </a>
+    </div>
+    <div class="navbar-center hidden lg:flex">
+        <ul class="menu menu-horizontal px-1 text-lg">
+            <li class="text-black"><a href="{% url 'home:homepage' %}">Accueil</a></li>
+            <li class="text-black relative" id="services-menu">
+                <details>
+                    <summary>Nos services</summary>
+                    <ul class="bg-gray-100 p-2">
+                        <li class="text-black"><a href="{% url 'institute:japanese' %}">Cours de japonais</a></li>
+                        <li class="text-black"><a href="{% url "institute:chinese" %}">Cours de chinois</a></li>
+                        <li class="text-black"><a href="{% url "institute:korean" %}">Cours de coréen</a></li>
+                        <li class="text-black"><a href="{% url "institute:workshops" %}">Ateliers</a></li>
+                        <li class="text-black"><a href="{% url "institute:other" %}">Autres</a></li>
+                    </ul>
+                </details>
+            </li>
+            <li class="text-black"><a href="{% url "contact:contact-form" %}">Contact</a></li>
+            <li class="text-black"><a href="{% url "home:about" %}">À propos</a></li>
+        </ul>
+    </div>
+    <div class="navbar-end">
+        <a href="tel:0540900254" class="btn bg-red-400 text-white hover:bg-red-500 focus:outline-none focus:ring-2 focus:ring-red-400 focus:ring-opacity-50">
+            <i class="fa fa-phone" aria-hidden="true"></i>
+        </a>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('click', function(event) {
+        var servicesMenu = document.getElementById('services-menu');
+        var isClickInside = servicesMenu.contains(event.target);
+
+        if (!isClickInside) {
+            var detailsElement = servicesMenu.querySelector('details');
+            detailsElement.removeAttribute('open');
+        }
+    });
+</script>

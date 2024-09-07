@@ -1,0 +1,83 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block hero %}
+<div class="bg-white">
+    <section class="bg-[#FCF8F1] bg-opacity-30 py-10 sm:py-16 lg:py-24">
+        <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+            <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2 text-center lg:text-left">
+                <div class="order-first lg:order-last">
+                    <img class="w-full max-w-4/5 rounded-lg shadow-2xl mx-auto" src="{% static 'img/hero.jpg' %}" alt="" />
+                </div>
+                <div>
+                    <p class="text-base font-semibold tracking-wider text-blue-600 uppercase">Pour ceux qui veulent vraiment apprendre</p>
+                    <h1 class="mt-4 text-4xl font-bold text-black lg:mt-8 sm:text-6xl xl:text-8xl">Rejoignez-nous à l'Institut <span class="text-red-400">Torii</span></h1>
+                    <p class="mt-4 text-base text-black lg:mt-8 sm:text-xl">Des enseignants qualifiés depuis 2018</p>
+
+                    <a href="{% url "contact:contact-form" %}" title="" class="inline-flex items-center px-6 py-4 mt-5 font-semibold text-black transition-all duration-200 bg-red-400 rounded-full lg:mt-10 hover:bg-red-500 focus:bg-red-500" role="button">
+                        Contactez-nous
+                        <svg class="w-6 h-6 ml-8 -mr-2" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M13 9l3 3m0 0l-3 3m3-3H8m13 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>
+{% endblock hero %}
+
+{% block content %}
+<div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
+    <h1 class="text-center text-4xl text-black uppercase mb-12">
+        <strong>
+
+            Nos <span class="text-red-500">services</span>
+        </strong>
+    </h1>
+
+    <div class="swiper mySwiper relative mb-12">
+        <div class="swiper-wrapper">
+            {% for subject in subjects %}
+            <div class="swiper-slide">
+                <div class="bg-red-50 rounded-2xl h-80 flex flex-col justify-center items-center p-4">
+                    <!-- Petite image -->
+                    <img src="{{ subject.thumbnail.url }}" alt="{{ subject.title }}" class="w-24 h-24 mb-4 object-contain">
+                    
+                    <!-- Texte en gras -->
+                    <span class="text-xl font-bold text-black mb-2">{{ subject.title }}</span>
+                    
+                    <!-- Petit texte non gras -->
+                    <span class="text-sm text-gray-600 mb-4">{{ subject.description }}</span>
+                    
+                    <!-- Bouton rouge centré -->
+                    <a href="{% url 'institute:'|add:subject.english_title %}" class="px-6 py-3 text-lg bg-red-400 text-white font-semibold rounded-full hover:bg-red-500">Découvrir</a>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-pagination"></div>
+    </div>
+
+    <h1 class="text-center text-4xl text-black uppercase mb-12">
+        <strong>
+
+            Ce qui vous <span class="text-red-500">attend</span>
+        </strong>
+    </h1>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
+        {% for photo in photos %}
+        <div>
+            <img class="h-auto max-w-full rounded-lg" src="{{ photo.thumbnail.url }}" alt="photo.title">
+        </div>
+        {% endfor %}
+    </div>
+</div>
+{% endblock content %}
+
+{% block footer %}
+    {% include "fragments/footer.html" %}
+{% endblock footer %}

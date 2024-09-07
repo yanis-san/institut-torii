@@ -1,0 +1,20 @@
+*{
+    background-color: blueviolet;
+}
+
+
+    .swiper-wrapper {
+        width: 100%;
+        height: max-content !important;
+        padding-bottom: 64px !important;
+        -webkit-transition-timing-function: linear !important;
+        transition-timing-function: linear !important;
+        position: relative;
+    }
+    .swiper-pagination-bullet {
+        background: #f87171;
+    }
+    .swiper-pagination-bullet-active {
+        background: #f87171 !important;
+    }
+
