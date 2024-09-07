@@ -10,9 +10,9 @@ crispy-tailwind = "*"
 pillow = "*"
 whitenoise = "*"
 django-tailwind = "*"
-psycopg2 = "*"
 pymysql = "*"
 django-environ = "*"
+psycopg2-binary = "*"
 
 [dev-packages]
 
