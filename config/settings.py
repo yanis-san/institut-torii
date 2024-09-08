@@ -6,7 +6,7 @@ import pymysql
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
-environ.Env.read_env(env_file=str(BASE_DIR / ".env"))
+environ.Env.read_env(env_file=str(BASE_DIR /'config'/ ".env"))
 
 pymysql.install_as_MySQLdb()
 
@@ -48,7 +48,6 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -143,11 +142,9 @@ USE_TZ = True
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
-
+    BASE_DIR / 'static',
+    BASE_DIR / 'theme'/'static'/'css'/'dist',
 ]
-
-
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
