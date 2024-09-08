@@ -15,13 +15,9 @@ pymysql.install_as_MySQLdb()
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = env("SECRET_KEY")
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = env.bool("DEBUG")
-
-ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
-
+SECRET_KEY='django-insecure--ka0!2g3vic=d@pm8=q5u+m2b4cl=qqp0e7j&us0r=c9egvqm+'
+DEBUG=True
+ALLOWED_HOSTS=[]
 
 
 
