@@ -161,7 +161,7 @@ EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=False)
 '''
 
 MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_ROOT = BASE_DIR / "mediafiles"
 
 
 # Config of crispy tailwind
