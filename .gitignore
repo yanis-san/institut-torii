@@ -3,7 +3,6 @@
 node_modules
 db.sqlite3
 # Vite
-dist/
 .vite/
 
 media/
