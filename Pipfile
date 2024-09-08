@@ -8,11 +8,10 @@ django = "*"
 django-extensions = "*"
 crispy-tailwind = "*"
 pillow = "*"
-whitenoise = "*"
 django-tailwind = "*"
 pymysql = "*"
 django-environ = "*"
-psycopg2-binary = "*"
+
 
 [dev-packages]
 
