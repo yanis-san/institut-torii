@@ -7,7 +7,7 @@
         <div class="px-4 mx-auto max-w-7xl sm:px-6 lg:px-8">
             <div class="grid items-center grid-cols-1 gap-12 lg:grid-cols-2 text-center lg:text-left">
                 <div class="order-first lg:order-last">
-                    <img class="w-full max-w-4/5 rounded-lg shadow-2xl mx-auto" src="{% static 'img/hero.jpg' %}" alt="" />
+                    <img class="w-full max-w-4/5 rounded-lg shadow-2xl mx-auto" src="https://instituttorii.sirv.com/Images/hero.jpg" alt="" />
                 </div>
                 <div>
                     <p class="text-base font-semibold tracking-wider text-blue-600 uppercase">Pour ceux qui veulent vraiment apprendre</p>
@@ -42,7 +42,7 @@
             <div class="swiper-slide">
                 <div class="bg-red-50 rounded-2xl h-80 flex flex-col justify-center items-center p-4">
                     <!-- Petite image -->
-                    <img src="{{ subject.thumbnail.url }}" alt="{{ subject.title }}" class="w-24 h-24 mb-4 object-contain">
+                    <img src="https://instituttorii.sirv.com/Images/service_{{ forloop.counter }}.png" alt="" class="w-24 h-24 mb-4 object-contain">
                     
                     <!-- Texte en gras -->
                     <span class="text-xl font-bold text-black mb-2">{{ subject.title }}</span>
@@ -69,9 +69,9 @@
     </h1>
 
     <div class="grid grid-cols-2 md:grid-cols-3 gap-4 mb-12">
-        {% for photo in photos %}
+        {% for i in "123456789" %}
         <div>
-            <img class="h-auto max-w-full rounded-lg" src="{{ photo.thumbnail.url }}" alt="photo.title">
+            <img class="h-auto max-w-full rounded-lg" src="https://instituttorii.sirv.com/Images/{{ i }}.jpg">
         </div>
         {% endfor %}
     </div>

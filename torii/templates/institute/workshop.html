@@ -12,7 +12,7 @@
         <figure class="px-10 pt-10">
           {% if course.thumbnail %}
           <img
-            src="{{ course.thumbnail.url }}"
+          src="{{ course.thumbnail}}"
             alt="{{ course.title }}"
             class="rounded-xl w-[252px] h-[170px] object-cover" />
           {% else %}
@@ -25,11 +25,47 @@
         <div class="card-body items-center text-center">
           <h2 class="card-title">{{ course.title }}</h2>
           <ul class="text-left mt-4 space-y-2">
-            <li><strong>Prix:</strong> {{ course.price }}</li>
+            <li><strong>Prix:</strong> {{ course.price }} DA</li>
             <li><strong>Disponibilité:</strong> {{ course.available|yesno:"Disponible,Non disponible" }}</li>
+
+            {% if course.type=='sushis' %}
+            {% else %}
             <li><strong>Fréquence:</strong> {{ course.frequency }}</li>
-            <li><strong>Date de début:</strong> {{ course.start_date }}</li>
-            <li><strong>Date de fin:</strong> {{ course.end_date }}</li>
+
+            {% endif %}
+            {% if course.type == 'individual' %}
+{% else %}
+<li><strong>Durée:</strong> {{ course.duration }}</li>
+{% endif %}
+            <li><strong>Jour:</strong> 
+    {% if course.days %}
+        {{ course.days }}
+    {% else %}
+        Bientôt communiqué
+    {% endif %}
+</li>
+    <li><strong>Heure:</strong> 
+{% if course.hour %}    
+    {{ course.hour }}
+        {% else %}
+        Bientôt communiquée
+    {% endif %}
+    
+    </li>
+<li><strong>Date de début:</strong> 
+    {% if course.start_date %}
+        {{ course.start_date }}
+    {% else %}
+        Bientôt disponible
+    {% endif %}
+</li>
+<li><strong>Date de fin:</strong> 
+    {% if course.end_date %}
+        {{ course.end_date }}
+    {% else %}
+        Bientôt disponible
+    {% endif %}
+</li>
           </ul>
         </div>
       </div>

@@ -22,18 +22,35 @@ class Gallery(models.Model):
 
 
 class Course(models.Model):
+    ENROLLMENT_STATUS_CHOICES = [
+        ('En cours', 'En cours'),
+        ('Terminée', 'Terminée'),
+    ]
+
+    COURSE_TYPE_CHOICES = [
+        ('individual', 'Individuel'),
+        ('online', 'En ligne'),
+        ('presential', 'Présentiel en groupe'),
+    ]
 
     title = models.CharField(max_length=200)
     description = models.TextField(blank=True)
-    frequency = models.CharField(max_length=100)
-    days = models.CharField(max_length=200)
-    start_date = models.DateField()
-    end_date = models.DateField()
+    frequency = models.CharField(max_length=100, blank=True, null=True)
+    days = models.CharField(max_length=200, blank=True, null=True)
+    start_date = models.DateField(blank=True, null=True)
+    end_date = models.DateField(blank=True, null=True)
+    hour = models.TimeField(blank=True, null=True)
+    type = models.CharField(max_length=20, choices=COURSE_TYPE_CHOICES)
+    duration=models.CharField(max_length=150,blank=True)
     price = models.IntegerField()
-    subject = models.ForeignKey(to='Subject',on_delete=models.CASCADE)
+    subject = models.ForeignKey(to='Subject', on_delete=models.CASCADE)
     available = models.BooleanField(default=True)
-    thumbnail = models.ImageField(upload_to="img", blank=True, null=True)
-
+    thumbnail = models.URLField(max_length=200, blank=True, null=True)
+    enrollment = models.CharField(
+        max_length=10,
+        choices=ENROLLMENT_STATUS_CHOICES,
+        default='En cours',
+    )
 
     def __str__(self):
         return f'{self.title} | {self.subject.title}'

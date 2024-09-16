@@ -6,7 +6,7 @@ import pymysql
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 env = environ.Env()
-environ.Env.read_env(env_file=str(BASE_DIR /'config'/ ".env"))
+environ.Env.read_env(env_file=str(BASE_DIR /".env"))
 
 pymysql.install_as_MySQLdb()
 
@@ -19,9 +19,8 @@ SECRET_KEY = env("SECRET_KEY")
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG")
-
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
-
+print(DEBUG)
 
 
 
@@ -37,6 +36,7 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
     "django_extensions",
     "crispy_forms",
@@ -48,6 +48,7 @@ INSTALLED_APPS = [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
+    "whitenoise.middleware.WhiteNoiseMiddleware",
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -83,7 +84,6 @@ WSGI_APPLICATION = 'config.wsgi.application'
 # Configuration de la base de données
 
 # settings.py
-'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
@@ -97,14 +97,15 @@ DATABASES = {
         },
     }
 }
-'''
 
+'''
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
+'''
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -137,14 +138,24 @@ USE_I18N = True
 USE_TZ = True
 
 
+'''
+STATIC_URL = "/static/"
+STATIC_ROOT = "/home/fyxszahz/public_html/staticfiles"
 
+STATICFILES_DIRS = [
+    BASE_DIR / 'static',
+    BASE_DIR / 'theme' / 'static_src' / 'src',
+]
+'''
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "staticfiles"
+
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
-    BASE_DIR / 'theme' / 'static_src' / 'src', 
+    BASE_DIR / 'theme' / 'static_src' / 'src',
 ]
+
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -159,10 +170,14 @@ EMAIL_HOST_USER = env('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
 EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=False)
 '''
+'''
+# Media files
+MEDIA_URL = "/media/"
+MEDIA_ROOT = "/home/fyxszahz/public_html/mediafiles"
+'''
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
-
 
 # Config of crispy tailwind
 CRISPY_ALLOWED_TEMPLATE_PACKS = "tailwind"
@@ -176,5 +191,12 @@ INTERNAL_IPS = [
     "127.0.0.1",
 ]
 
-
+'''
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
+'''
 # NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"

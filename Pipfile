@@ -11,7 +11,7 @@ pillow = "*"
 django-tailwind = "*"
 pymysql = "*"
 django-environ = "*"
-
+whitenoise = "*"
 
 [dev-packages]
 

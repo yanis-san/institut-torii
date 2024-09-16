@@ -12,7 +12,7 @@
         <figure class="px-10 pt-10">
           {% if course.thumbnail %}
           <img
-            src="{{ course.thumbnail.url }}"
+          src="{{ course.thumbnail}}"
             alt="{{ course.title }}"
             class="rounded-xl w-[252px] h-[170px] object-cover" />
           {% else %}
@@ -25,15 +25,89 @@
         <div class="card-body items-center text-center">
           <h2 class="card-title">{{ course.title }}</h2>
           <ul class="text-left mt-4 space-y-2">
-            <li><strong>Prix:</strong> {{ course.price }}</li>
+            {% if course.type == 'individual' %}
+          <li><strong>Prix:</strong> {{ course.price }} DA/heure</li>
+          {% else %}
+          <li><strong>Prix:</strong> {{ course.price }} DA les 3 mois</li>
+
+          {% endif %}
             <li><strong>Disponibilité:</strong> {{ course.available|yesno:"Disponible,Non disponible" }}</li>
-            <li><strong>Fréquence:</strong> {{ course.frequency }}</li>
-            <li><strong>Date de début:</strong> {{ course.start_date }}</li>
-            <li><strong>Date de fin:</strong> {{ course.end_date }}</li>
-          </ul>
-        </div>
+            {% if course.type == 'individual' %}
+    <li><strong>Fréquence:</strong> Personnalisée</li>
+    
+    {% elif course.type != 'individual' and not course.frequency %}
+
+
+
+{% else %}
+<li><strong>Fréquence:</strong> {{ course.frequency }}</li>
+{% endif %}
+
+{% if course.type == 'individual' %}
+{% else %}
+<li><strong>Durée:</strong> {{ course.duration }}</li>
+{% endif %}
+
+
+{% if course.type == 'individual' %}
+    <li><strong>Jour:</strong> 
+        Personnalisé
+    </li>
+{% elif not course.days %}
+    <li><strong>Jour:</strong> 
+        Bientôt communiqué
+    </li>
+{% else %}
+    <li><strong>Jour:</strong> 
+        {{ course.days }}
+    </li>
+{% endif %}
+
+{% if course.type == 'individual' %}
+    <li><strong>Heure:</strong> 
+        Personnalisée
+    </li>
+{% elif not course.hour %}
+    <li><strong>Heure:</strong> 
+        Bientôt communiquée
+    </li>
+{% else %}
+    <li><strong>Heure:</strong> 
+        {{ course.hour }}
+    </li>
+{% endif %}
+
+{% if course.type == 'individual' %}
+    <li><strong>Date de début:</strong> 
+        Personnalisée
+    </li>
+{% elif not course.start_date %}
+    <li><strong>Date de début:</strong> 
+        Bientôt disponible
+    </li>
+{% else %}
+    <li><strong>Date de début:</strong> 
+        {{ course.start_date }}
+    </li>
+{% endif %}
+
+{% if course.type == 'individual' %}
+    <li><strong>Date de fin:</strong> 
+        Personnalisée
+    </li>
+{% elif not course.end_date %}
+    <li><strong>Date de fin:</strong> 
+        Bientôt disponible
+    </li>
+{% else %}
+    <li><strong>Date de fin:</strong> 
+        {{ course.end_date }}
+    </li>
+{% endif %}
+        </ul>
       </div>
-      {% endfor %}
+    </div>
+    {% endfor %}
     {% else %}
       {% include "fragments/no_courses.html" %}
     {% endif %}

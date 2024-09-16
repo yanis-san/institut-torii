@@ -8,27 +8,31 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %} {% endblock title %}</title>
     {% tailwind_css %}
-    <link rel="icon" type="image/png" href="images/logo_verticale.png" />
-
+    <link rel="icon" type="image/png" href="{% static 'images/logo_verticale.png' %}" />
 
     {% block head_style %}
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link
+  rel="stylesheet"
+  href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+/>
     <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet" type="text/css" />
     <link href="{% static 'css/style.css' %}" rel="stylesheet" type="text/css" />
     {% endblock head_style %}
   </head>
   <body class="flex flex-col min-h-screen">
     <!-- header section starts  -->
-    {% block navigation %} {% include "fragments/navigation.html" %} {% endblock navigation %} 
+    {% block navigation %} {% include "fragments/navigation.html" %} {% endblock navigation %}
     {% block header %}{% endblock header %}
     {% block hero %}{% endblock hero %}
     {% block services %}{% endblock services %}
     <main class="flex-grow">
       {% block content %}{% endblock content %}
     </main>
-    {% block footer %} {% include "fragments/footer.html" %}{% endblock footer %} 
+    {% block footer %} {% include "fragments/footer.html" %}{% endblock footer %}
      
     {% block bottom_scripts %}
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="{% static 'js/script.js' %}"></script>
     {% endblock bottom_scripts %}
   </body>
