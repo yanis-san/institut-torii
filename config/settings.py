@@ -20,7 +20,7 @@ SECRET_KEY = env("SECRET_KEY")
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = env.bool("DEBUG")
 ALLOWED_HOSTS = env.list('ALLOWED_HOSTS')
-print(DEBUG)
+
 
 
 
@@ -199,4 +199,4 @@ STORAGES = {
     },
 }
 '''
-# NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
+#NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
