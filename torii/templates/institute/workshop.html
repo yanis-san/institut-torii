@@ -30,7 +30,7 @@
             <li><strong>Prix:</strong> {{ course.price }} DA</li>
             <li><strong>Disponibilité:</strong> {{ course.available|yesno:"Disponible,Non disponible" }}</li>
 
-            {% if course.type=='sushis' %}
+            {% if course.type=='Ateliers' %}
             {% else %}
             <li><strong>Fréquence:</strong> {{ course.frequency }}</li>
 
