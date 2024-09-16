@@ -13,7 +13,7 @@ def japanese_courses(request):
 
 def chinese_courses(request):
     subject_title = "Chinois"
-    courses = Course.objects.filter(subject__title=subject_title)
+    courses = Course.objects.filter(subject__title="Chinois")
 
     return render(request, 'institute/chinese.html', context={"courses": courses, "subject_title": subject_title})
 
