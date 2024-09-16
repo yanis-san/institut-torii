@@ -38,7 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
-    'django_recaptcha',
+    'captcha',
     "django_extensions",
     "crispy_forms",
     "crispy_tailwind",
