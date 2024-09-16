@@ -30,44 +30,40 @@
             <li><strong>Prix:</strong> {{ course.price }} DA</li>
             <li><strong>Disponibilité:</strong> {{ course.available|yesno:"Disponible,Non disponible" }}</li>
 
-            {% if course.type=='presential' %}
-            {% else %}
             <li><strong>Fréquence:</strong> {{ course.frequency }}</li>
 
-            {% endif %}
-            {% if course.type == 'individual' %}
-{% else %}
+
 <li><strong>Durée:</strong> {{ course.duration }}</li>
-{% endif %}
             <li><strong>Jour:</strong> 
     {% if course.days %}
         {{ course.days }}
     {% else %}
-        Bientôt communiqué
+Personnalisé
     {% endif %}
 </li>
     <li><strong>Heure:</strong> 
 {% if course.hour %}    
     {{ course.hour }}
         {% else %}
-        Bientôt communiquée
+        Personnalisé
+
     {% endif %}
     
     </li>
-<li><strong>Date de début:</strong> 
+<li><strong>Date:</strong> 
     {% if course.start_date %}
         {{ course.start_date }}
     {% else %}
-        Bientôt disponible
+        Bientôt communiquée
     {% endif %}
 </li>
-<li><strong>Date de fin:</strong> 
+
     {% if course.end_date %}
+    <li><strong>Date de fin:</strong> </li>
         {{ course.end_date }}
     {% else %}
-        Bientôt disponible
     {% endif %}
-</li>
+
           </ul>
         </div>
       </div>
