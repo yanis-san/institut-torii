@@ -9,19 +9,19 @@
                 </svg>
             </div>
             <ul tabindex="0" class="menu menu-sm dropdown-content bg-gray-100 rounded-box z-[1] mt-3 w-52 p-2 shadow text-lg">
-                <li><a href="{% url 'home:homepage' %}">Accueil</a></li>
+                <li><a class="text-black" href="{% url 'home:homepage' %}">Accueil</a></li>
                 <li>
-                    <a>Nos services</a>
+                    <a class="text-black" >Nos services</a>
                     <ul class="p-2">
                         <li><a class="text-black" href="{% url 'institute:japanese' %}">Cours de japonais</a></li>
-                        <li><a href="{% url "institute:chinese" %}">Cours de chinois</a></li>
-                        <li><a href="{% url "institute:korean" %}">Cours de coréen</a></li>
-                        <li><a href="{% url "institute:workshops"%}" >Ateliers</a></li>
-                        <li><a href="{% url "institute:other" %}">Autres</a></li>
+                        <li><a class="text-black" href="{% url "institute:chinese" %}">Cours de chinois</a></li>
+                        <li><a class="text-black" href="{% url "institute:korean" %}">Cours de coréen</a></li>
+                        <li><a class="text-black" href="{% url "institute:workshops"%}" >Ateliers</a></li>
+                        <li><a class="text-black" href="{% url "institute:other" %}">Autres</a></li>
                     </ul>
                 </li>
-                <li><a href="{% url "contact:contact-form" %}">Contact</a></li>
-                <li><a href="{% url "home:about" %}">À propos</a></li>
+                <li><a class="text-black" href="{% url "contact:contact-form" %}">Contact</a></li>
+                <li><a class="text-black" href="{% url "home:about" %}">À propos</a></li>
             </ul>
         </div>
         <a class="btn btn-ghost text-xl" href="{% url 'home:homepage' %}">
@@ -34,7 +34,7 @@
             <li class="text-black relative" id="services-menu">
                 <details>
                     <summary>Nos services</summary>
-                    <ul class="bg-gray-100 p-2">
+                    <ul class="bg-gray-100 text-black p-2">
                         <li class="text-black"><a href="{% url 'institute:japanese' %}">Cours de japonais</a></li>
                         <li class="text-black"><a href="{% url "institute:chinese" %}">Cours de chinois</a></li>
                         <li class="text-black"><a href="{% url "institute:korean" %}">Cours de coréen</a></li>
