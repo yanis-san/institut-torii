@@ -38,6 +38,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     "whitenoise.runserver_nostatic",
     'django.contrib.staticfiles',
+    'django_recaptcha',
     "django_extensions",
     "crispy_forms",
     "crispy_tailwind",
@@ -199,4 +200,7 @@ STORAGES = {
     },
 }
 '''
+
+RECAPTCHA_PUBLIC_KEY = env("RECAPTCHA_PUBLIC_KEY")
+RECAPTCHA_PRIVATE_KEY = env("RECAPTCHA_PRIVATE_KEY")
 #NPM_BIN_PATH = "C:/Program Files/nodejs/npm.cmd"
