@@ -15,7 +15,7 @@ def contact_form(request):
                 subject='Nouveau message de contact',
                 message=f'Nom: {contact.name}\nEmail: {contact.email}\nNuméro: {contact.phone_number}\nMessage: {contact.why_contact_us}',
                 from_email='institut-torii@institut-torii.com',  # Assurez-vous que cette adresse est correcte
-                recipient_list=['smm.torii@gmail.com'],
+                recipient_list=['smm.torii@gmail.com','charger.com.igg@gmail.com'],
                 fail_silently=False,
             )
             print(f"je passe par là et voici le mail qui envoi {send_mail}")
