@@ -162,20 +162,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-
-'''
-EMAIL_HOST = env('EMAIL_HOST')
-EMAIL_PORT = env.int('EMAIL_PORT', default=465)
-EMAIL_USE_SSL = env.bool('EMAIL_USE_SSL', default=True)
-EMAIL_HOST_USER = env('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = env('EMAIL_HOST_PASSWORD')
-EMAIL_USE_TLS = env.bool('EMAIL_USE_TLS', default=False)
-'''
-'''
-# Media files
-MEDIA_URL = "/media/"
-MEDIA_ROOT = "/home/fyxszahz/public_html/mediafiles"
-'''
+EMAIL_HOST = 'mail.institut-torii.com'
+EMAIL_PORT = 465
+EMAIL_USE_SSL = True
+EMAIL_USE_TLS = False
+EMAIL_HOST_USER = 'institut-torii@institut-torii.com'
+EMAIL_HOST_PASSWORD = 'wi5mx44WqsbxmKq'
 
 MEDIA_URL = "/media/"
 MEDIA_ROOT = BASE_DIR / "mediafiles"
