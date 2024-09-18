@@ -29,42 +29,40 @@
           <ul class="text-left mt-4 space-y-2">
             <li><strong>Prix:</strong> {{ course.price }} DA</li>
             <li><strong>Disponibilité:</strong> {{ course.available|yesno:"Disponible,Non disponible" }}</li>
-
-            <li><strong>Fréquence:</strong> {{ course.frequency }}</li>
-
-
-<li><strong>Durée:</strong> {{ course.duration }}</li>
+            {% if course.frequency %}
+              <li><strong>Fréquence:</strong> {{ course.frequency }}</li>
+            {% endif %}
+            <li><strong>Durée:</strong> {{ course.duration }}</li>
             <li><strong>Jour:</strong> 
-    {% if course.days %}
-        {{ course.days }}
-    {% else %}
-Personnalisé
-    {% endif %}
-</li>
-    <li><strong>Heure:</strong> 
-{% if course.hour %}    
-    {{ course.hour }}
-        {% else %}
-        Personnalisé
-
-    {% endif %}
-    
-    </li>
-<li><strong>Date:</strong> 
-    {% if course.start_date %}
-        {{ course.start_date }}
-    {% else %}
-        Bientôt communiquée
-    {% endif %}
-</li>
-
-    {% if course.end_date %}
-    <li><strong>Date de fin:</strong> </li>
-        {{ course.end_date }}
-    {% else %}
-    {% endif %}
-
+              {% if course.days %}
+                {{ course.days }}
+              {% else %}
+                Personnalisé
+              {% endif %}
+            </li>
+            <li><strong>Heure:</strong> 
+              {% if course.hour %}    
+                {{ course.hour }}
+              {% else %}
+                Personnalisé
+              {% endif %}
+            </li>
+            <li><strong>Date:</strong> 
+              {% if course.start_date %}
+                {{ course.start_date }}
+              {% else %}
+                Bientôt communiquée
+              {% endif %}
+            </li>
+            {% if course.end_date %}
+              <li><strong>Date de fin:</strong> {{ course.end_date }}</li>
+            {% endif %}
           </ul>
+          {% if course.url_file %}
+            <a href="{{ course.url_file }}" class="mt-4 inline-block bg-orange-400 text-white font-bold py-2 px-4 rounded hover:bg-orange-500 transition duration-300 ease-in-out">
+              Télécharge le programme
+            </a>
+          {% endif %}
         </div>
       </div>
       {% endfor %}

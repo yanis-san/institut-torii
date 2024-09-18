@@ -51,6 +51,7 @@ class Course(models.Model):
         choices=ENROLLMENT_STATUS_CHOICES,
         default='En cours',
     )
+    url_file = models.URLField(max_length=200, blank=True, null=True)
 
     def __str__(self):
         return f'{self.title} | {self.subject.title}'
