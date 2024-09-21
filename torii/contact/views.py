@@ -30,7 +30,7 @@ def contact_form(request):
                 message=plain_message,
                 from_email='institut-torii@institut-torii.com',  # Assurez-vous que cette adresse est correcte
                 recipient_list=['smm.torii@gmail.com', 'charger.com.igg@gmail.com', 'institut.torii@gmail.com'],
-                recipient_list=['smm.torii@gmail.com'],
+                #recipient_list=['smm.torii@gmail.com'],
                 fail_silently=False,
                 html_message=html_message,
             )
