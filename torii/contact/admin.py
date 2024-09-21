@@ -24,6 +24,6 @@ export_as_csv.short_description = "Export Selected as CSV"
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('name', 'email', 'phone_number', 'why_contact_us', 'created_at')
+    list_display = ('name', 'email', 'phone_number', 'why_contact_us', 'reason_for_contact', 'created_at')
     readonly_fields = ('created_at',)
     actions = [export_as_csv]
