@@ -12,7 +12,7 @@ def contact_form(request):
             contact = form.save(commit=False)
             contact.save()
             
-            # Préparer le message HTML
+            # Préparer le message HTML pour l'email de notification
             html_message = render_to_string('contact/contact_email.html', {
                 'name': contact.name,
                 'email': contact.email,
@@ -24,17 +24,34 @@ def contact_form(request):
             # Convertir le message HTML en texte brut
             plain_message = strip_tags(html_message)
             
-            # Envoyer un email
+            # Envoyer un email de notification
             send_mail(
                 subject='Nouveau message de contact',
                 message=plain_message,
                 from_email='institut-torii@institut-torii.com',  # Assurez-vous que cette adresse est correcte
-                recipient_list=['smm.torii@gmail.com', 'charger.com.igg@gmail.com', 'institut.torii@gmail.com'],
-                #recipient_list=['smm.torii@gmail.com'],
+                #recipient_list=['smm.torii@gmail.com', 'charger.com.igg@gmail.com', 'institut.torii@gmail.com'],
+                recipient_list=['smm.torii@gmail.com'],
                 fail_silently=False,
                 html_message=html_message,
             )
-            print(f"je passe par là et voici le mail qui envoi {send_mail}")
+            
+            # Préparer le message HTML pour l'email de confirmation
+            confirmation_html_message = render_to_string('contact/confirmation_email.html', {
+                'name': contact.name,
+            })
+            
+            # Convertir le message HTML en texte brut
+            confirmation_plain_message = strip_tags(confirmation_html_message)
+            
+            # Envoyer un email de confirmation
+            send_mail(
+                subject='Nous avons bien reçu ta demande',
+                message=confirmation_plain_message,
+                from_email='institut-torii@institut-torii.com',  # Assurez-vous que cette adresse est correcte
+                recipient_list=[contact.email],
+                fail_silently=False,
+                html_message=confirmation_html_message,
+            )
             
             # Rediriger
             return redirect("home:homepage")
