@@ -35,7 +35,7 @@ class Contact(models.Model):
     name = models.CharField(max_length=255)
     email = models.EmailField()
     phone_number = models.CharField(max_length=15, validators=[phone_regex])
-    reason_for_contact = models.CharField(max_length=50, choices=REASON_CHOICES, default=OTHER)
+    reason_for_contact = models.CharField(max_length=50, choices=REASON_CHOICES)
     why_contact_us = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
