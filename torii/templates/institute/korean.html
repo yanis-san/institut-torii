@@ -91,21 +91,6 @@
         {{ course.start_date }}
     </li>
 {% endif %}
-
-{% if course.type == 'individual' %}
-    <li><strong>Date de fin:</strong> 
-        Personnalisée
-    </li>
-{% elif not course.end_date %}
-    <li><strong>Date de fin:</strong> 
-        Bientôt disponible
-    </li>
-{% else %}
-    <li><strong>Date de fin:</strong> 
-        {{ course.end_date }}
-    </li>
-{% endif %}
-          <li><strong>Sujet:</strong> {{ course.subject.name }}</li>
         </ul>
       </div>
     </div>
