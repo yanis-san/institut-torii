@@ -3,7 +3,7 @@ from torii.contact.models import Contact
 from django_recaptcha.fields import ReCaptchaField
 
 class ContactForm(forms.ModelForm):
-    captcha = ReCaptchaField()
+    # captcha = ReCaptchaField()
 
     class Meta:
         model = Contact

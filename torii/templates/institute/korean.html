@@ -31,9 +31,8 @@
           <li><strong>Prix:</strong> {{ course.price }} DA/heure</li>
           {% else %}
           <li><strong>Prix:</strong> {{ course.price }} DA les 3 mois</li>
-
           {% endif %}
-            <li><strong>Disponibilité:</strong> {{ course.available|yesno:"Disponible,Non disponible" }}</li>
+            <li><strong>Inscription:</strong> {{ course.enrollment }}</li>
             {% if course.type == 'individual' %}
     <li><strong>Fréquence:</strong> Personnalisée</li>
     
@@ -106,6 +105,7 @@
         {{ course.end_date }}
     </li>
 {% endif %}
+          <li><strong>Sujet:</strong> {{ course.subject.name }}</li>
         </ul>
       </div>
     </div>

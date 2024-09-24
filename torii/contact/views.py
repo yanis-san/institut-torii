@@ -58,3 +58,13 @@ def contact_form(request):
     else:
         form = ContactForm()
     return render(request, "contact/contact_form.html", context={"form": form})
+
+
+
+
+
+
+
+
+
+
