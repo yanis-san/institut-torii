@@ -28,7 +28,7 @@ def contact_form(request):
             send_mail(
                 subject='Nouveau message de contact',
                 message=plain_message,
-                from_email='yanisb598@gmail.com',  
+                from_email='institut-torii@institut-torii.com',  
                 recipient_list=['yanisbarbara98@gmail.com'],
                 fail_silently=False,
                 html_message=html_message,
@@ -46,7 +46,7 @@ def contact_form(request):
             send_mail(
                 subject='Nous avons bien reçu ta demande',
                 message=confirmation_plain_message,
-                from_email='yanisb598@gmail.com',
+                from_email='institut-torii@institut-torii.com',
                 recipient_list=[contact.email],
                 fail_silently=False,
                 html_message=confirmation_html_message,
