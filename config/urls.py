@@ -4,7 +4,7 @@ from django.conf.urls.static import static
 from config import settings
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('gestiontorii/', admin.site.urls),
     path('',include('torii.home.urls')),
     path('',include('torii.institute.urls')),
     path('',include('torii.contact.urls')),
