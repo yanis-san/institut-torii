@@ -29,7 +29,7 @@ def contact_form(request):
                 subject='Nouveau message de contact',
                 message=plain_message,
                 from_email='institut-torii@institut-torii.com',  
-                recipient_list=['yanisbarbara98@gmail.com'],
+                recipient_list=['smm.torii@gmail.com','charger.com.igg@gmail.com'],
                 fail_silently=False,
                 html_message=html_message,
             )
