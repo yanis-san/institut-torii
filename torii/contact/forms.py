@@ -3,7 +3,7 @@ from torii.contact.models import Contact
 from django_recaptcha.fields import ReCaptchaField
 
 class ContactForm(forms.ModelForm):
-    # captcha = ReCaptchaField()
+    captcha = ReCaptchaField()
 
     class Meta:
         model = Contact
@@ -15,3 +15,5 @@ class ContactForm(forms.ModelForm):
             'reason_for_contact': 'Motif de contact',
             'why_contact_us': 'Donnez-nous plus de détails',
         }
+
+
